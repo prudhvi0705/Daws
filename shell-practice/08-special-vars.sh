@@ -7,5 +7,5 @@ echo "Current working Directory : $PWD"
 echo "who is running this script : $USER"
 echo "Home directory of the user : $HOME"
 echo "PID of the current script : $$"
-sleep &
+sleep 50 &
 echo "PID of the bg script : $!"
