@@ -12,3 +12,4 @@ Leaders=("NAMO" "TRUMP" "PUTIN" "TREDEAU")
 
 echo "First Leader is : ${Leaders[0]}"
 echo "All Leaders are : ${Leaders[@]}"
+echo "Checking who is at 10th Position : ${Leaders[10]}"
