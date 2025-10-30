@@ -3,7 +3,7 @@
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]; then
-    echo " You should run this script with root privelage"
+    echo -e "$R You should run this script with root privelage $N"
     exit 1
 fi
 
@@ -24,27 +24,27 @@ VALIDATE(){
 
 dnf list installed mysql
 if [ $? -ne 0 ]; then
-    echo " $R Mysql is not installed $N. Hence installing mysql"
+    echo -e "$R Mysql is not installed $N. Hence installing mysql"
     dnf install mysql -y
     VALIDATE $? MYSQL
 else
-    echo "$G mysql is installed $N"
+    echo -e "$G mysql is installed $N"
 fi
 
 dnf list installed python3
 if [ $? -ne 0 ]; then
-    echo " $R python is not installed $N. Hence installing python"
+    echo -e "$R python is not installed $N. Hence installing python"
     dnf install python3 -y
     VALIDATE $? Python
 else
-    echo "$G python is installed $N"
+    echo -e "$G python is installed $N"
 fi
 
 dnf list installed nginx
 if [ $? -ne 0 ]; then
-    echo " $R nginx is not installed $N. Hence installing nginx"
+    echo -e "$R nginx is not installed $N. Hence installing nginx"
     dnf install nginx -y
     VALIDATE $? Nginx
 else
-    echo "$G nginx is installed $N"
+    echo -e "$G nginx is installed $N"
 fi
