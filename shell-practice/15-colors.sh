@@ -1,0 +1,50 @@
+#!/bin/bash
+
+USERID=$(id -u)
+
+if [ $USERID -ne 0 ]; then
+    echo " You should run this script with root privelage"
+    exit 1
+fi
+
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+
+VALIDATE(){
+    if [ $1 -ne 0 ]; then
+        echo "$2 installation got failed"
+        exit 1
+    else
+        echo "$2 installation got succeded"
+    fi
+
+}
+
+dnf list installed mysql
+if [ $? -ne 0 ]; then
+    echo " $R Mysql is not installed $N. Hence installing mysql"
+    dnf install mysql -y
+    VALIDATE $? MYSQL
+else
+    echo "$G mysql is installed $N"
+fi
+
+dnf list installed python3
+if [ $? -ne 0 ]; then
+    echo " $R python is not installed $N. Hence installing python"
+    dnf install python3 -y
+    VALIDATE $? Python
+else
+    echo "$G python is installed $N"
+fi
+
+dnf list installed nginx
+if [ $? -ne 0 ]; then
+    echo " $R nginx is not installed $N. Hence installing nginx"
+    dnf install nginx -y
+    VALIDATE $? Nginx
+else
+    echo "$G nginx is installed $N"
+fi
