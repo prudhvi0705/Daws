@@ -41,10 +41,15 @@ VALIDATE $? "Enabling Nodejs"
 dnf install nodejs -y
 VALIDATE $? "Installing Nodejs"
 
-useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
-VALIDATE $? "Adding Roboshop User"
+id roboshop
+if [ $? -ne 0 ]; then
+    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
+    VALIDATE $? "Adding Roboshop User"
+else
+    echo -e "$G User is already present in server.$N"
+fi
 
-mkdir /app 
+mkdir -p /app 
 VALIDATE $? "Creating App Directory"
 
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
@@ -53,11 +58,11 @@ VALIDATE $? "Fetching zip file from s3"
 cd /app 
 VALIDATE $? "Traversing into app directory"
 
+rm -rf /app/*
+VALIDATE $? "Removing existing code"
+
 unzip /tmp/catalogue.zip
 VALIDATE $? "Unzipping the code"
-
-cd /app 
-VALIDATE $? "Traversing into app directory"
 
 npm install 
 VALIDATE $? "Installed package"
@@ -79,3 +84,14 @@ VALIDATE $? "Added mongodb repository"
 
 dnf install mongodb-mongosh -y
 VALIDATE $? "Installed mongosh client"
+
+INDEX=$(mongosh mongodb.daws86s.fun --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')")
+if [ $INDEX -le 0 ]; then
+    mongosh --host $MONGODB_HOST </app/db/master-data.js &>>$LOG_FILE
+    VALIDATE $? "Load catalogue products"
+else
+    echo -e "Catalogue products already loaded ... $Y SKIPPING $N"
+fi
+
+systemctl restart catalogue
+VALIDATE $? "Restarted catalogue"
