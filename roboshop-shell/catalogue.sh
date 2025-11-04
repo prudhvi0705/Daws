@@ -73,7 +73,7 @@ VALIDATE $? "Enabling service"
 systemctl start catalogue
 VALIDATE $? "Starting service"
 
-cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
+cp $PWD/mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "Added mongodb repository"
 
 dnf install mongodb-mongosh -y
