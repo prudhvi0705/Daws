@@ -31,7 +31,7 @@ VALIDATE(){
 
 }
 
-cp $PWD/mongo.repo /etc/yum.repos.d/mongo.repo
+cp $PWD/mongo-conf /etc/yum.repos.d/mongo.repo
 VALIDATE $? "Adding Mongo repo"
 
 dnf install mongodb-org -y
