@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -33,8 +31,8 @@ VALIDATE(){
 
 }
 
-#cp mongo.repo /etc/yum.repos.d/mongo.repo
-#VALIDATE $? "Adding Mongo repo"
+cp $PWD/mongo.repo /etc/yum.repos.d/mongo.repo
+VALIDATE $? "Adding Mongo repo"
 
 dnf install mongodb-org -y
 VALIDATE $? "Installing Mongodb"
