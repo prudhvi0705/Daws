@@ -17,6 +17,7 @@ mkdir -p /var/log/roboshop-shell
 LOG_FOLDER="/var/log/roboshop-shell"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f 1)
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
+SCRIPT_DIR=$PWD
 
 mkdir -p $LOG_FOLDER
 echo "Script started at : $(date)"
@@ -61,8 +62,8 @@ VALIDATE $? "Traversing into app directory"
 npm install 
 VALIDATE $? "Installed package"
 
-#cp $PWD/catalogue.conf /etc/systemd/system/catalogue.service
-#VALIDATE $? "Copied service startup file"
+cp $SCRIPT_DIR/catalogue.conf /etc/systemd/system/catalogue.service
+VALIDATE $? "Copied service startup file"
 
 systemctl daemon-reload
 VALIDATE $? "Reloading Package"
@@ -73,7 +74,7 @@ VALIDATE $? "Enabling service"
 systemctl start catalogue
 VALIDATE $? "Starting service"
 
-cp $PWD/mongo-conf /etc/yum.repos.d/mongo.repo
+cp $SCRIPT_DIR/mongo-conf /etc/yum.repos.d/mongo.repo
 VALIDATE $? "Added mongodb repository"
 
 dnf install mongodb-mongosh -y
