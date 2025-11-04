@@ -61,8 +61,8 @@ VALIDATE $? "Traversing into app directory"
 npm install 
 VALIDATE $? "Installed package"
 
-cp $PWD/catalogue.conf /etc/systemd/system/catalogue.service
-VALIDATE $? "Copied service startup file"
+#cp $PWD/catalogue.conf /etc/systemd/system/catalogue.service
+#VALIDATE $? "Copied service startup file"
 
 systemctl daemon-reload
 VALIDATE $? "Reloading Package"
