@@ -8,7 +8,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-MONGODB_HOST=$(mongodb.prudhvii.fun)
+MONGODB_HOST="mongodb.prudhvii.fun"
 
 USERID=$(id -u)
 
