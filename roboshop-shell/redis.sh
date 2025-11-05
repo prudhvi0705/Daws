@@ -25,7 +25,7 @@ SCRIPT_DIR=$PWD
 Start_date="date"
 
 mkdir -p $LOG_FOLDER
-echo "Script started at : $Start_date"
+echo "Script started at : $(date)"
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
@@ -55,5 +55,4 @@ echo "Enabling Redis Service"
 systemctl start redis
 echo "Starting Redis Service"
 
-End_date="date"
-echo "Script Completed at : $End_date"
+echo "Script started at : $(date)"
