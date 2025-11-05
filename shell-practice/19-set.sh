@@ -3,7 +3,7 @@
 set -euo pipefail
 
 error(){
-    echo "There is error in script"
+    echo "There is error in script $LINENO, Command is: $BASH_COMMAND"
 }
 
 trap error ERR
