@@ -54,3 +54,6 @@ echo "Enabling Redis Service"
 
 systemctl start redis
 echo "Starting Redis Service"
+
+End_date="date"
+Script "completed at : $(date)"
