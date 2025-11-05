@@ -1,6 +1,12 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
+
+error(){
+    echo "There is error in script"
+}
+
+trap error ERR
 
 echo "Hello"
 echo "This is before error"
