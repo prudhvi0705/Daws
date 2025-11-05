@@ -22,7 +22,7 @@ SCRIPT_DIR=$PWD
 mkdir -p $LOG_FOLDER
 echo "Script started at : $(date)"
 
-cp $SCRIPT_DIR/rabbitmq.conf /etc/yum.repos.d/rabbitmq.repo
+cp $SCRIPT_DIR/rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo
 echo "Adding Rabbitmq repo"
 
 dnf install rabbitmq-server -y
