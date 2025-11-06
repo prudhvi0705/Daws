@@ -18,6 +18,7 @@ LOG_FOLDER="/var/log/roboshop-shell"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f 1)
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 SCRIPT_DIR=$PWD
+MONGODB_HOST="mongodb.prudhvii.fun"
 
 mkdir -p $LOG_FOLDER
 echo "Script started at : $(date)"
