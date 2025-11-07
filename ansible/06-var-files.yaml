@@ -1,4 +1,4 @@
-- name: variables script
+- name: variables from files script
   hosts: localhost
   connection: local
   var_files:
