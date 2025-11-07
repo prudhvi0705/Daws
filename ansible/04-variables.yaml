@@ -1,5 +1,5 @@
 - name: variables script
-  hosts: local
+  hosts: localhost
   connection: local
   vars:
     Course: Devops
