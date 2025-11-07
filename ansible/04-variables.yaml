@@ -6,6 +6,6 @@
     Duration: 120 days
     Trainer: Siva Kumar
   tasks:
-    - name: Print variables
-      ansible.builtin.debug:
+  - name: Print variables
+    ansible.builtin.debug:
       msg: "Course Name is {{ $Course }}, Course is trained by {{ $Duration }}, Duration is {{ Trainer }}"      
