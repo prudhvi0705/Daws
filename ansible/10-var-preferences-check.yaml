@@ -1,6 +1,7 @@
 - name: Var preferences
   hosts: localhost
   connection: local
+  become: yes
   vars:
    NAME: from variables
   vars_files:
