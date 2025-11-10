@@ -30,3 +30,7 @@
   - name: yaml to json
     ansible.builtin.debug:
       msg: "json: {{ students_yaml | to_json }}"
+  - name: Create a JSON file with pretty-printed content
+    ansible.builtin.copy:
+        content: "{{ students_yaml | to_nice_json }}"
+        dest: "./output.json"
