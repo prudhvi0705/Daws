@@ -3,10 +3,9 @@
   connection: local
   vars:
     technologies: DevOps, Linux, Shell, Ansible
-  tags:  
-    key: Application
-    value: payment
-
+    tags:  
+      key: Application
+      value: payment
   tasks:
   - name : default variable
     ansible.builtin.debug:
