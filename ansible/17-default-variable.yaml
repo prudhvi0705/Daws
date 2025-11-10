@@ -3,7 +3,7 @@
   connection: local
   vars:
     technologies: DevOps, Linux, Shell, Ansible
-    tags:  
+    dict:  
       key: Application
       value: payment
   tasks:
@@ -15,4 +15,4 @@
       msg: "Technologies are : {{ technologies | split(',')}}"
   - name: dictionary to list
     ansible.builtin.debug:
-      msg: "Tags are {{ tags | dict2items }}"
+      msg: "Tags are {{ dict | dict2items }}"
