@@ -7,8 +7,8 @@
     Cloud: AWS
     tools: [ "Linux", "Shell", "AWS" ] #list
     concepts: #map/dictionary
-    Cloud: aws
-    Config Mangement: ansible
+      Cloud: aws
+      Config Mangement: ansible
   tasks:
   - name: datatypes
     ansible.builtin.debug:
