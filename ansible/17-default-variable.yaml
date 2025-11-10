@@ -25,7 +25,7 @@
     ansible.builtin.debug:
       msg: "Tags are {{tags | items2dict }}"
   - name: read yaml and take into variable
-    ansible.builtin.debug:
+    ansible.builtin.set_fact:
       students_yaml: "{{ lookup('file', 'students.yaml') | from_yaml }}"
   - name: yaml to json
     ansible.builtin.debug:
