@@ -14,4 +14,4 @@
     vars:
       NAME: from play level
     ansible.builtin.debug:
-    msg: "{{ NAME }}"
+      msg: "{{ NAME }}"
