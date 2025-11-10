@@ -16,4 +16,4 @@
       msg: "Technologies are : {{ technologies | split(',')}}"
   - name: dictionary to list
     ansible.builtin.debug:
-      msg: "Tags are {{ dict | dict2items }}"
+      msg: "Tags are {{ tags | dict2items }}"
