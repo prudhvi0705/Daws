@@ -1,0 +1,15 @@
+- name: datatypes
+  hosts: localhost
+  connection: local
+  vars:
+    Course: Devops
+    Duration: 120 hours
+    Cloud: AWS
+  tools: [ "Linux", "Shell", "AWS" ] #list
+  concepts: #map/dictionary
+    Cloud: aws
+    Config Mangement: ansible
+  tasks:
+  - name: datatypes
+    ansible.builtin.debug:
+      msg: " Course name is {{ Course }}, Duration is {{ Duration }}, Cloud is {{ Cloud }}, tools are {{ tools }}. "
