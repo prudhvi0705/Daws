@@ -4,8 +4,8 @@
   vars:
     technologies: DevOps, Linux, Shell, Ansible
     dict:  
-      key: Application
-      value: payment
+      Application: payment
+      Env: dev
   tasks:
   - name : default variable
     ansible.builtin.debug:
