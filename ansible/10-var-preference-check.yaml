@@ -1,0 +1,17 @@
+- name: variables preference
+  hosts: localhost
+  connection: local
+  vars:
+    NAME: from play level
+  vars_files:
+  - course.yaml
+  vars_prompt:
+  - name : NAME
+    prompt : "what is this level"
+    private : no
+  tasks:
+  - name: Prints two lines of messages, but only if there is an environment value set
+    vars:
+      NAME: from play level
+    ansible.builtin.debug:
+    msg: "{{ NAME }}"
