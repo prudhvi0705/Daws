@@ -5,8 +5,8 @@
     Course: Devops
     Duration: 120 hours
     Cloud: AWS
-  tools: [ "Linux", "Shell", "AWS" ] #list
-  concepts: #map/dictionary
+    tools: [ "Linux", "Shell", "AWS" ] #list
+    concepts: #map/dictionary
     Cloud: aws
     Config Mangement: ansible
   tasks:
