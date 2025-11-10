@@ -5,10 +5,10 @@
   #  NAME: from play level
   #vars_files:
   #- course.yaml
-  vars_prompt:
-  - name : NAME
-    prompt : "what is this level"
-    private : no
+  #vars_prompt:
+  #- name : NAME
+  #  prompt : "what is this level"
+  #  private : no
   tasks:
   - name: from task level
     #vars:
