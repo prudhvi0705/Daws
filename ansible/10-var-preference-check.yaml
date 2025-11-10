@@ -10,7 +10,7 @@
     prompt : "what is this level"
     private : no
   tasks:
-  - name: Prints two lines of messages, but only if there is an environment value set
+  - name: from task level
     vars:
       NAME: from play level
     ansible.builtin.debug:
