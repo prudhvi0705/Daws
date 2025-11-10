@@ -3,7 +3,7 @@
   connection: local
   vars:
     technologies: DevOps, Linux, Shell, Ansible
-    dict:  
+    lux:  
       Application: payment
       Env: dev
   tasks:
