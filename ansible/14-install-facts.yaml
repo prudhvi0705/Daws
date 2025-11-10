@@ -4,4 +4,5 @@
   tasks:
   - name: Install nginx
     ansible.builtin.dnf:
-    state: latest
+      name: nginx
+      state: latest
