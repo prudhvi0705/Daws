@@ -7,8 +7,6 @@
   - name : default variable
     ansible.builtin.debug:
       msg: "Hello, {{ name | default('Prudhvi') }}"
-
-  tasks:
   - name: print list from string
     ansible.builtin.debug:
       msg: "Technologies are : {{ technologies | split(',')}}"
