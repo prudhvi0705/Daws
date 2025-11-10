@@ -12,6 +12,6 @@
   tasks:
   - name: from task level
     vars:
-      NAME: from play level
+      NAME: from task level
     ansible.builtin.debug:
       msg: "{{ NAME }}"
