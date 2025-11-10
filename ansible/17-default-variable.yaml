@@ -6,6 +6,11 @@
     lux:  
       Application: payment
       Env: dev
+    tags:
+    - key: Application
+      value: payment
+    - key: Environment
+      value: dev
   tasks:
   - name : default variable
     ansible.builtin.debug:
@@ -16,3 +21,6 @@
   - name: dictionary to list
     ansible.builtin.debug:
       msg: "Tags are {{ lux | dict2items }}"
+  - name: list to dictionary
+    ansible.builtin.debug:
+      msg: "Tags are {{tags | items2dict }}"
