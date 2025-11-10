@@ -6,8 +6,7 @@
   tags:  
     key: Application
     value: payment
-    key: Environment
-    value: dev
+
   tasks:
   - name : default variable
     ansible.builtin.debug:
