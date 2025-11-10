@@ -4,7 +4,7 @@
   vars_prompt:
   - Number: number
     prompt: Please enter your number
-    private: no
+    private: false
   tasks: 
   - name: check given is less than or not
     ansible.builtin.debug:
