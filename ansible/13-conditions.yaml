@@ -1,10 +1,8 @@
 - name: condition playbook
   hosts: localhost
   connection: local
-  vars_prompt:
-  - name: number
-    prompt: Please enter your number
-    private: false
+  vars:
+    number: 6
   tasks: 
   - name: check given is less than or not
     ansible.builtin.debug:
