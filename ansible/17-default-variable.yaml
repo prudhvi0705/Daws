@@ -45,3 +45,6 @@
   - name: check IP is valid or not
     ansible.builtin.debug: 
       msg: "{{ ipaddress | ansible.utils.ipv4 }}"
+  - name: check shell or command module
+    ansible.builtin.command: grep root /etc/passwd 
+      register: command_output
