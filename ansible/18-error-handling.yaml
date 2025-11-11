@@ -3,7 +3,7 @@
   connection: local 
   tasks:
   - name: check roboshop user
-  ansible.builtin.command: id roboshop
+  ansible.builtin.shell: id roboshop
   register: user_check
   ignore_errors: true
 
