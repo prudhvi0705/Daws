@@ -4,7 +4,7 @@
   vars:
     technologies: DevOps, Linux, Shell, Ansible
     Name: "Prudhvi M v"
-    ipaddress: 2455.4325.345.255
+    ipaddress: 192.168.0.1
     lux:  
       Application: payment
       Env: dev
