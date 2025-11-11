@@ -1,0 +1,17 @@
+- name: ec2 creation and route53 upgradation
+  hosts: localhost
+  connection: local
+  vars:
+   AMI_ID: "ami-09c813fb71547fc4f"
+   SG_ID: "sg-00fa736b2eba8959d"
+   ZONE_ID: "Z05445223EGIS9AWDWK63"
+   DOMAIN_NAME: "prudhvii.fun"
+   tasks: 
+   - name: ec2 creation
+     amazon.aws.ec2_instance:
+     name: "{{ item }}"
+     instance_type: t3.micro
+     security_group: "{{ SG_ID }}"
+     image_id: "{{ AMI_ID }}"
+     loop: "{{ instances }}"
+     register: ec2_output
