@@ -38,3 +38,6 @@
   - name: convert to upper
     ansible.builtin.debug:
       msg: "{{ Name | upper }}"
+  - name: convert to upper
+    ansible.builtin.debug:
+      msg: "{{ Name | lower }}"
