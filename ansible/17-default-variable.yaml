@@ -4,6 +4,7 @@
   vars:
     technologies: DevOps, Linux, Shell, Ansible
     Name: "Prudhvi M v"
+    ipaddress: 2455.4325.345.255
     lux:  
       Application: payment
       Env: dev
@@ -41,3 +42,6 @@
   - name: convert to upper
     ansible.builtin.debug:
       msg: "{{ Name | lower }}"
+  - name: check IP is valid or not
+    ansible.builtin.debug: 
+      msg: "{{ ipaddress | ansible.utils.ipv4 }}"
