@@ -3,6 +3,7 @@
   connection: local
   vars:
     technologies: DevOps, Linux, Shell, Ansible
+    Name: "Prudhvi M v"
     lux:  
       Application: payment
       Env: dev
@@ -34,3 +35,6 @@
     ansible.builtin.copy:
         content: "{{ students_yaml | to_nice_json }}"
         dest: "/tmp/output.json"
+  - name: convert to upper
+    ansible.builtin.debug:
+      msg: "{{ Name | upper }}"
