@@ -10,7 +10,7 @@
   - name: Enable and start mysql
     ansible.builtin.service:
       name: mysqld
-      state: present
+      state: started
       enabled: true
 
   - name: Change the default root user passwd
