@@ -7,7 +7,11 @@
    ZONE_ID: "Z05445223EGIS9AWDWK63"
    DOMAIN_NAME: "prudhvii.fun"
    instances:
+   - mongodb
+   - redis
    - mysql
+   - rabbitmq
+   
   tasks: 
    - name: ec2 creation
      amazon.aws.ec2_instance:
