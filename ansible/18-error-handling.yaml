@@ -3,10 +3,10 @@
   connection: local 
   tasks:
   - name: check roboshop user
-  ansible.builtin.shell: id roboshop
-  register: user_check
-  ignore_errors: true
+    ansible.builtin.shell: id roboshop
+    register: user_check
+    ignore_errors: true
 
-- name: print
-  ansible.builtin.debug:
-  msg: "{{ user_check }}"
+  - name: print
+    ansible.builtin.debug:
+    msg: "{{ user_check }}"
