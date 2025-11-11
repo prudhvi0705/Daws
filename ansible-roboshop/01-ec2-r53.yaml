@@ -6,7 +6,7 @@
    SG_ID: "sg-00fa736b2eba8959d"
    ZONE_ID: "Z05445223EGIS9AWDWK63"
    DOMAIN_NAME: "prudhvii.fun"
-   tasks: 
+  -tasks: 
    - name: ec2 creation
      amazon.aws.ec2_instance:
       name: "{{ item }}"
