@@ -50,4 +50,4 @@
     register: command_output
   - name: print command_output
     ansible.builtin.debug:
-      msg: {{ command_output }}
+      msg: "{{ command_output }}"
