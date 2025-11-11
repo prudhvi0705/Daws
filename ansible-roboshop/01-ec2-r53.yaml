@@ -9,9 +9,9 @@
    tasks: 
    - name: ec2 creation
      amazon.aws.ec2_instance:
-     name: "{{ item }}"
-     instance_type: t3.micro
-     security_group: "{{ SG_ID }}"
-     image_id: "{{ AMI_ID }}"
-     loop: "{{ instances }}"
+      name: "{{ item }}"
+      instance_type: t3.micro
+      security_group: "{{ SG_ID }}"
+      image_id: "{{ AMI_ID }}"
+      loop: "{{ instances }}"
      register: ec2_output
