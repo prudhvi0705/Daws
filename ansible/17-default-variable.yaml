@@ -46,5 +46,5 @@
     ansible.builtin.debug: 
       msg: "{{ ipaddress | ansible.utils.ipv4 }}"
   - name: check shell or command module
-    ansible.builtin.command: cat /etc/passwd | grep root
+    ansible.builtin.shell: cat /etc/passwd | grep root
     register: command_output
