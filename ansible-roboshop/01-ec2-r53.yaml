@@ -27,7 +27,18 @@
         msg: "{{ item.instances[0].public_ip_address }}"
      loop: "{{ ec2_output.results }}"
 
-   - name: print public ipaddress
+   - name: print private ipaddress
      ansible.builtin.debug:
         msg: "{{ item.instances[0].private_ip_address }}"
+     loop: "{{ ec2_output.results }}"
+
+   - name: Add new.example.com as an A record
+     amazon.aws.route53:
+        state: present
+        zone: "{{ DOMAIN_NAME }}" # Replace with your hosted zone name
+        record: "{{ item.item }}.{{ DOMAIN_NAME }}" #mysql.prudhvii.fun
+        type: A
+        ttl: 1 # Time To Live in seconds
+        value: "{{ item.instances[0].private_ip_address }}" # Replace with the target IPv4 address
+        overwrite: true
      loop: "{{ ec2_output.results }}"
