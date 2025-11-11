@@ -10,3 +10,7 @@
   - name: print
     ansible.builtin.debug:
       msg: "{{ user_check }}"
+  
+  - name: create user
+    ansible.builtin.shell: useradd roboshop
+    when user_check.rc !=0
