@@ -52,7 +52,7 @@
     ansible.builtin.debug:
       msg: "{{ command_output }}"
   - name: check shell or command module
-    ansible.builtin.command: ls -ltr > /tmp/shell.txt
+    ansible.builtin.shell: ls -ltr > /tmp/shell.txt
     register: commands_output
   - name: print
     ansible.builtin.debug: 

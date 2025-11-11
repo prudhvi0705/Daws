@@ -1,0 +1,12 @@
+- name: user creation
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: check roboshop user
+  ansible.builtin.command: id roboshop
+  register: user_check
+  ignore_errors: true
+
+- name: print
+  ansible.builtin.debug:
+  msg: "{{ user_check }}"
