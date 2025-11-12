@@ -47,6 +47,9 @@
     args:
       chdir: /app
 
+  - name: daemon_reload
+    ansible.builtin.command: systemctl daemon-reload 
+
   - name: daemon reload enable and start
     ansible.builtin.systemd_service:
       name: user
