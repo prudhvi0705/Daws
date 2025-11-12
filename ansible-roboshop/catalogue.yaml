@@ -67,9 +67,9 @@
     register: connect_output
 
   - name: load products into mongodb
-    ansible.builtin.shell: mongosh --host mongodb.daws86s.fun </app/db/master-data.js
+    ansible.builtin.shell: mongosh --host mongodb.prudhvii.fun </app/db/master-data.js
     when: catalogue_output.stdout | int < 0
-    
+
   - name: daemon reload enable and start
     ansible.builtin.systemd_service:
       name: catalogue
