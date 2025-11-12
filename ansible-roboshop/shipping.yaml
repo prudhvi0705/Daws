@@ -1,0 +1,83 @@
+- name: setting up shipping server
+  hosts: shipping
+  become: yes
+  tasks:
+  - name: Install required packages for sehii=pping server setup
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: present
+    loop:
+     - maven
+     - mysql
+
+  - name: install mysql python libraries
+    ansible.builtin.pip:
+      executable: pip3.9
+      name: "{{ item }}"
+    loop:
+    - cryptography
+    - PyMySQL
+
+  - name: Add roboshop user
+    ansible.builtin.user:
+      name: roboshop
+      comment: roboshop user
+      shell: /sbin/nologin
+      home: /home/newuser
+      system: true
+
+  - name: remove app directory
+    ansible.builtin.file:
+      path: /app
+      state: absent
+
+  - name: create app directory
+    ansible.builtin.file:
+      path: /app
+      state: directory
+ 
+  - name: Fetch code from url
+    ansible.builtin.get_url:
+      url: https://roboshop-artifacts.s3.amazonaws.com/shipping-v3.zip
+      dest: /tmp/shipping.zip
+
+  - name: Extract ZIP archive
+    ansible.builtin.unarchive:
+      src: /tmp/shipping.zip  # Path to the archive file
+      dest: /app # Destination directory for extraction
+      remote_src: yes
+
+  - name: clean mvn package
+    ansible.builtin.command: mvn clean package
+    args:
+      chdir: /app
+
+  - name: clean mvn package
+    ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar 
+    args:
+      chdir: /app
+
+  - name: copy Shipping service
+    ansible.builtin.copy:
+      src: shipping.service
+      dest: /etc/yum.repos.d/shipping.service
+
+  - name: import shipping data into mysql
+    community.mysql.mysql_db:
+      state: import
+      name: all
+      login_host: mysql.prudhvii.fun
+      login_user: root
+      login_password: RoboShop@1
+      target: "{{ item }}"
+    loop:
+    - /app/db/schema.sql
+    - /app/db/app-user.sql 
+    - /app/db/master-data.sql
+
+  - name: reload daemon and start service
+    ansible.builtin.service:
+      name: shipping
+      state: started
+      enabled: true
+      daemon_reload: true
