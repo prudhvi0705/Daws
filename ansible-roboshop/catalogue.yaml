@@ -66,7 +66,7 @@
     ansible.builtin.command: mongosh --host mongodb.prudhvii.fun </app/db/master-data.js
     register: connect_output
 
-    - name: daemon reload enable and start
+  - name: daemon reload enable and start
     ansible.builtin.systemd_service:
       name: catalogue
       enabled: true
