@@ -47,6 +47,11 @@
     args:
       chdir: /app
 
+  - name: copy catalogue service file
+    ansible.builtin.copy:
+      src: user.service
+      dest: /etc/systemd/system/user.service
+      
   - name: daemon_reload
     ansible.builtin.command: systemctl daemon-reload 
 
